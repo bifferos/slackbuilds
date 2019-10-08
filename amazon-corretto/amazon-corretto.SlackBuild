@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Modified for SlackBuilds.org by Bifferos
+# Public domain: bifferos@gmail.com
 
 PRGNAM=amazon-corretto
 VERSION=${VERSION:-8.222.10.1}
@@ -54,24 +54,10 @@ chmod 755 $PKG/etc/profile.d/*
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat << EOF > $PKG/install/doinst.sh
-if [ -x /usr/bin/update-desktop-database ]; then
-  /usr/bin/update-desktop-database -q usr/share/applications >/dev/null 2>&1
-fi
-
-if [ -x /usr/bin/update-mime-database ]; then
-  /usr/bin/update-mime-database usr/share/mime >/dev/null 2>&1
-fi
-
-if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
-  if [ -x /usr/bin/gtk-update-icon-cache ]; then
-    /usr/bin/gtk-update-icon-cache usr/share/icons/hicolor >/dev/null 2>&1
-  fi
-fi
 
 EOF
 
 
-# Java may not expect compressed manpages, so don't compress them.
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   $PKG/usr/lib${LIBDIRSUFFIX}/java/THIRD_PARTY_README \
