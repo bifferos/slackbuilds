@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Build script to build the VirtualBox guest Additions given a VBoxLinuxAdditions.run
+
+PRGNAM=virtualbox-addons
+VB_VERSION=$( ./VBoxLinuxAdditions.run --info | grep "^Identification:" | sed -r 's/^.*([[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+).*$/\1/' )
+VERSION=${VERSION:-$VB_VERSION}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_Biff}
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i486 ;;
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/Biff}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+PACKAGE_NAME=$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+
+echo Attempting to build $PACKAGE_NAME
+
+slacktrack -R $CWD/postbuildfixes.sh -p $PACKAGE_NAME ./VBoxLinuxAdditions.run
+
