@@ -1,13 +1,14 @@
 
-# WTF is this doing there?
+# Lose the log
 rm -Rf VBox.log
 # Probably shouldn't uninstall using this script
 rm -Rf usr/sbin/vbox-uninstall-guest-additions
 # Going to run depmod to hopefully make these
 rm -Rf lib/modules/*/modules.*
-# Why does slacktrack not exclude dev/? 
-rm -Rf dev/vboxuser
-rm -Rf dev/vboxguest
+# Device files will be generated 
+rm -Rf dev
+# touched directories that get created 
+rm -Rf sbin usr
 # Clean up useradd, groupadd
 rm -Rf etc/*group* etc/*shadow* etc/*passwd* 
 
