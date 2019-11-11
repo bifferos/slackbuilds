@@ -1,0 +1,12 @@
+Creates a slackware package from the mounted Guest additions installer
+using slacktrack.
+
+To use this 'slackbuild' do the following:
+
+- Copy these files onto a VirtualBox VM running Slackware
+- Choose the VB menu option "Install Guest Additions CD Image"
+- mount /dev/dvd /mnt/cdrom
+- cp /mnt/cdrom/VBoxLinuxAdditions.run .
+- execute ./virtualbox-addons.SlackBuild
+- Your package will appear in /tmp.
+
