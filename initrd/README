@@ -1,1 +1,22 @@
 Linux initrd utilities
+
+Should generate a slackbuild looking like this:
+```
+./
+install/
+install/doinst.sh
+install/slack-desc
+opt/
+opt/afterpkg-python/
+opt/afterpkg-python/initrd-0.1.tar.gz
+usr/
+usr/doc/
+usr/doc/initrd-0.1/
+usr/doc/initrd-0.1/README
+usr/doc/initrd-0.1/initrd.SlackBuild
+var/
+var/lib/
+var/lib/pkgtools/
+var/lib/pkgtools/douninst.sh/
+var/lib/pkgtools/douninst.sh/initrd-0.1-x86_64-1_SBo
+```
