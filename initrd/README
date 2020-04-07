@@ -1,7 +1,7 @@
 Linux initrd utilities
 
 Should generate a slackbuild looking like this:
-```
+
 ./
 install/
 install/doinst.sh
@@ -19,4 +19,4 @@ var/lib/
 var/lib/pkgtools/
 var/lib/pkgtools/douninst.sh/
 var/lib/pkgtools/douninst.sh/initrd-0.1-x86_64-1_SBo
-```
+
